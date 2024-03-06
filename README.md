@@ -11,7 +11,7 @@ It's a application to search movie and view full detail.
 
 ## Live
 
-
+https://movie-searching-app.onrender.com
 
 ## Run Locally
 
