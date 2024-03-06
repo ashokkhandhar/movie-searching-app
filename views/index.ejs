@@ -12,14 +12,14 @@
 </head>
 <body>
     <main class='container'>
-        <h1 class="heading">Search Movie</h1>
-        <form action="/search" method="POST" class="input-form">
-            <input class="input-name" type="text" name="movieName">
-            <button type="submit" class="search-btn">
-                <span class="material-symbols-outlined">search</span>
-            </button>
-        </form>
         <% if(locals.content){ %>
+            <h1 class="heading">Search Movie</h1>
+            <form action="/search" method="POST" class="input-form">
+                <input class="input-name" type="text" name="movieName">
+                <button type="submit" class="search-btn">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </form>
             <div class="movie-container">
                 <div class="movie-poster">
                     <img class="image" src="<%= content.Poster %>" alt="Poster not found">
@@ -84,12 +84,20 @@
                 </div>
             </div>
         <% } else { %>
-            <p class="pre-loading">Search movie to view full detail</p>
+            <h1 class="heading heading-plus">Search Movie</h1>
+            <form action="/search" method="POST" class="input-form">
+                <input class="input-name" type="text" name="movieName">
+                <button type="submit" class="search-btn">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </form>
+            <p class="pre-loading">Search movie to view full detail...!</p>
         <% } %>
     </main>
     <footer>
         <div class="copy-right">
-            <span>Movie Search © <%= new Date().getFullYear() %></span>| 
+            <span>Movie Search © <%= new Date().getFullYear() %></span>
+            <div class="seprator">|</div>
             <span>
                 <a href='https://github.com/ashokkhandhar/movie-searching-app' target='_blank'>code</a> with ❤️ by <a href='http://ashokkhandhar.netlify.app/' target='_blank'>Ashok Khandhar</a>
             </span>
