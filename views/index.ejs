@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='description' content='Practice project'>
+    <meta name='keywords' content='HTML, CSS, JavaScript, Node.js, express, EJS'>
+    <meta name='author' content='Ashok Khandhar'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel='stylesheet' href='/style.css'>
+</head>
+<body>
+    <main class='container'>
+        <h1 class="heading">Search Movie</h1>
+        <form action="/search" method="POST" class="input-form">
+            <input class="input-name" type="text" name="movieName">
+            <button type="submit" class="search-btn">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </form>
+        <% if(locals.content){ %>
+            <div class="movie-container">
+                <div class="movie-poster">
+                    <img class="image" src="<%= content.Poster %>" alt="Poster not found">
+                </div>
+                <div class="movie-data">
+                    <h1 class="movie-title"><%= content.Title %></h1>
+                    <table class="first-table">
+                        <tr>
+                            <td><%= content.Year %></td>
+                        </tr>
+                        <tr>
+                            <td><%= content.Runtime %></td>
+                            <td><%= content.Genre %></td>
+                        </tr>
+                    </table>
+                    <table class="second-table">
+                        <tr>
+                            <th>Actors:</th>
+                            <td><%= content.Actors %></td>
+                        </tr>
+                        <tr>
+                            <th>Director:</th>
+                            <td><%= content.Director %></td>
+                        </tr>
+                        <tr>
+                            <th>Writer:</th>
+                            <td><%= content.Writer %></td>
+                        </tr>
+                        <tr>
+                            <th>Language:</th>
+                            <td><%= content.Language %></td>
+                        </tr>
+                        <tr>
+                            <th>Country:</th>
+                            <td><%= content.Country %></td>
+                        </tr>
+                        <tr>
+                            <th>Awards:</th>
+                            <td><%= content.Awards %></td>
+                        </tr>
+                        <tr>
+                            <th>IMDB Rating:</th>
+                            <td><%= content.imdbRating %> / 10</td>
+                        </tr>
+                        <tr>
+                            <th>IMDB Votes:</th>
+                            <td><%= content.imdbVotes %></td>
+                        </tr>
+                        <tr>
+                            <th>IMDB ID:</th>
+                            <td><%= content.imdbID %></td>
+                        </tr>
+                        <tr>
+                            <th>Release Date:</th>
+                            <td><%= content.Released %></td>
+                        </tr>
+                        <tr>
+                            <th class="special">Plot:</th>
+                            <td><%= content.Plot %></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        <% } else { %>
+            <p class="pre-loading">Search movie to view full detail</p>
+        <% } %>
+    </main>
+    <footer>
+        <div class="copy-right">
+            <span>Movie Search © <%= new Date().getFullYear() %></span>| 
+            <span>
+                <a href='' target='_blank'>code</a> with ❤️ by <a href='http://ashokkhandhar.netlify.app/' target='_blank'>Ashok Khandhar</a>
+            </span>
+        </div>
+    </footer>
+    <script src='./index.js'></script>
+</body>
+</html>
